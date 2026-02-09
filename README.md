@@ -4,6 +4,7 @@ buffer: 80000
 time 5e6
 env:16
 
+------------------------
 
 coord_ring (requires pre-training):
 
