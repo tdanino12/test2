@@ -547,7 +547,7 @@ def make_train(config, pretrained_params=None):
                         )
                         
                         emp_scale = config.get("emp_reward_scale", 1.0)
-                        reward["agent_0"] -= 20*emp_reward
+                        reward["agent_0"] = -20*emp_reward
 
                     transition = Transition(
                         batchify(done, env.agents, config["NUM_ACTORS"]).squeeze(),
@@ -618,8 +618,8 @@ def make_train(config, pretrained_params=None):
                     )
                     
                     emp_scale = config.get("emp_reward_scale", 1.0)
-                    #reward["agent_0"] -= 12.8*emp_reward
-                    reward["agent_0"] = 0.5*reward["agent_0"] + 0.5*emp_reward
+                    reward["agent_0"] = -12.8*emp_reward
+                    #reward["agent_0"] = 0.5*reward["agent_0"] + 0.5*emp_reward
                 transition = Transition(
                     batchify(done, env.agents, config["NUM_ACTORS"]).squeeze(),
                     action,
